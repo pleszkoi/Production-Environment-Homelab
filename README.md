@@ -28,7 +28,7 @@ In this project, I use:
 │       └── dashboards.json\
 ├── .dockerignore\
 ├── .gitignore\
-└── docker-compose.yml # To start Stack\
+└── docker-compose.yml # To start Stack
 
 ## Run application
 

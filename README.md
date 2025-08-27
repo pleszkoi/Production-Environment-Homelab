@@ -12,23 +12,23 @@ In this project, I use:
 
 ## Project structure
 
-├── app/
-│ └── app.py # Flask application
-│ └── requirements.txt # Python dependencies
-├── docker/
-│ └── Dockerfile # Docker image definition
-├── ansible/
-| └── inventory.ini
-| └── playbook.yml
-├── terraform/
-| └── main.tf
-├── monitoring
-| └── prometheus.yml
-│   └── grafana/
-│       └── dashboards.json
-├── .dockerignore
-├── .gitignore
-└── docker-compose.yml # To start Stack
+├── app/\
+│ └── app.py # Flask application\
+│ └── requirements.txt # Python dependencies\
+├── docker/\
+│ └── Dockerfile # Docker image definition\
+├── ansible/\
+| └── inventory.ini\
+| └── playbook.yml\
+├── terraform/\
+| └── main.tf\
+├── monitoring\
+| └── prometheus.yml\
+│   └── grafana/\
+│       └── dashboards.json\
+├── .dockerignore\
+├── .gitignore\
+└── docker-compose.yml # To start Stack\
 
 ## Run application
 

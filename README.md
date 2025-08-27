@@ -22,7 +22,7 @@ In this project, I use:
 | └── playbook.yml
 ├── terraform/
 | └── main.tf
-├── monitoring
+├── monitoring/
 | └── prometheus.yml
 │   └── grafana/
 │     └── dashboards.json

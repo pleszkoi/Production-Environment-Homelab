@@ -1,0 +1,21 @@
+# Python cache files
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+#Git
+.git
+.gitignore
+
+# Log files
+*.log
+
+# Terraform state files
+*.tfstate*
+.terraform/
+
+# Other built files
+*.out
+*.tmp

@@ -11,25 +11,25 @@ In this project, I use:
 - An application written in **Python** runs in the environment.
 
 ## Project structure
-
-├── app/\
-│ └── app.py # Flask application\
-│ └── requirements.txt # Python dependencies\
-├── docker/\
-│ └── Dockerfile # Docker image definition\
-├── ansible/\
-| └── inventory.ini\
-| └── playbook.yml\
-├── terraform/\
-| └── main.tf\
-├── monitoring\
-| └── prometheus.yml\
-│   └── grafana/\
-│       └── dashboards.json\
-├── .dockerignore\
-├── .gitignore\
+<pre>
+├── app/
+│ └── app.py # Flask application
+│ └── requirements.txt # Python dependencies
+├── docker/
+│ └── Dockerfile # Docker image definition
+├── ansible/
+| └── inventory.ini
+| └── playbook.yml
+├── terraform/
+| └── main.tf
+├── monitoring
+| └── prometheus.yml
+│   └── grafana/
+│     └── dashboards.json
+├── .dockerignore
+├── .gitignore
 └── docker-compose.yml # To start Stack
-
+</pre>
 ## Run application
 
 1. Clone the repository

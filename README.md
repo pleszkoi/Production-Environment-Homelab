@@ -46,7 +46,7 @@ In this project, I use:
    http://localhost:5000
 ```
 
-If everythng went good, the "Hello from Dockerized Flask App!" message appears. If you modify the app/app.py file, the change will also be updated in the container (due to the volumes setting in docker-compose.yml).
+If everything went good, the "Hello from Dockerized Flask App!" message appears. If you modify the app/app.py file, the change will also be updated in the container (due to the volumes setting in docker-compose.yml).
 
 **Author: Pleszkó István**
 **LinkedIn: https://www.linkedin.com/in/pleszko-istvan/**

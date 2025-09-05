@@ -18,7 +18,7 @@ resource "docker_network" "app_network" {
 resource "docker_image" "flask_app" {
   name = "flask-app:terraform"
   build {
-    context    = ".."
+    context    = "../.."
     dockerfile = "docker/Dockerfile"
   }
 }

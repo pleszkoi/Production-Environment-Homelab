@@ -1,0 +1,36 @@
+---
+- name: Provision Flask VM for containerized app
+  hosts: flask_vm
+  become: yes  # sudo használat
+  tasks:
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - docker.io
+          - docker-compose
+          - python3
+          - python3-pip
+          - git
+        state: present
+
+    - name: Add vagrant user to docker group
+      user:
+        name: vagrant
+        groups: docker
+        append: yes
+
+    - name: Clone the app repository
+      git:
+        repo: "https://github.com/pleszkoi/Production-Environment-Homelab.git"
+        dest: /home/vagrant/flask-app
+        version: main
+
+    - name: Build and start the container
+      community.docker.docker_compose:
+        project_src: /home/vagrant/flask-app
+        state: present

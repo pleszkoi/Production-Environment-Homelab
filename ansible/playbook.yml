@@ -1,17 +1,47 @@
 ---
 - name: Provision Flask VM for containerized app
   hosts: flask_vm
-  become: yes  # sudo használat
+  become: yes
   tasks:
 
     - name: Update apt cache
       apt:
         update_cache: yes
 
-    - name: Install required packages (Docker engine, Python, Git)
+    - name: Install dependencies for apt over HTTPS
       apt:
         name:
-          - docker.io
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+        state: present
+
+    - name: Add Docker GPG key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+
+    - name: Add Docker repository
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_lsb.codename }} stable"
+        state: present
+
+    - name: Update apt cache after adding Docker repo
+      apt:
+        update_cache: yes
+
+    - name: Install Docker engine (from Docker repo)
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: present
+
+    - name: Install Python and Git
+      apt:
+        name:
           - python3
           - python3-pip
           - git
@@ -25,8 +55,7 @@
     - name: Install Docker Compose v2 (plugin)
       apt:
         name: docker-compose-plugin
-        state: latest
-        update_cache: yes
+        state: present
 
     - name: Add vagrant user to docker group
       user:
@@ -44,4 +73,3 @@
       community.docker.docker_compose:
         project_src: /home/vagrant/flask-app
         state: present
-

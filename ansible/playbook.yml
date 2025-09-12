@@ -8,15 +8,25 @@
       apt:
         update_cache: yes
 
-    - name: Install required packages
+    - name: Install required packages (Docker engine, Python, Git)
       apt:
         name:
           - docker.io
-          - docker-compose
           - python3
           - python3-pip
           - git
         state: present
+
+    - name: Remove old docker-compose v1 binary if exists
+      file:
+        path: /usr/local/bin/docker-compose
+        state: absent
+
+    - name: Install Docker Compose v2 (plugin)
+      apt:
+        name: docker-compose-plugin
+        state: latest
+        update_cache: yes
 
     - name: Add vagrant user to docker group
       user:
@@ -30,7 +40,8 @@
         dest: /home/vagrant/flask-app
         version: main
 
-    - name: Build and start the container
+    - name: Build and start the container using docker compose v2
       community.docker.docker_compose:
         project_src: /home/vagrant/flask-app
         state: present
+

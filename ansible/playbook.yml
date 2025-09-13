@@ -51,6 +51,7 @@
       file:
         path: /usr/local/bin/docker-compose
         state: absent
+      ignore_errors: yes
 
     - name: Install Docker Compose v2 (plugin)
       apt:
@@ -70,6 +71,6 @@
         version: main
 
     - name: Build and start the container using docker compose v2
-      community.docker.docker_compose:
-        project_src: /home/vagrant/flask-app
-        state: present
+      ansible.builtin.command:
+        cmd: docker compose up -d
+        chdir: /home/vagrant/flask-app

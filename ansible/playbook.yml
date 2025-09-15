@@ -69,6 +69,11 @@
         repo: "https://github.com/pleszkoi/Production-Environment-Homelab.git"
         dest: /home/vagrant/flask-app
         version: main
+        depth: 1
+        sparse_checkout:
+          - app
+          - docker
+          - docker-compose.yml 
 
     - name: Build and start the container using docker compose v2
       ansible.builtin.command:

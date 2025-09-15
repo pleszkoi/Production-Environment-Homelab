@@ -3,7 +3,7 @@
   hosts: flask_vm
   become: yes
   tasks:
-      - name: Ensure system time is synchronized
+    - name: Ensure system time is synchronized
       apt:
         name: ntpdate
         state: present

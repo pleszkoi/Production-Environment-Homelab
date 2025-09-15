@@ -3,6 +3,14 @@
   hosts: flask_vm
   become: yes
   tasks:
+      - name: Ensure system time is synchronized
+      apt:
+        name: ntpdate
+        state: present
+
+    - name: Sync time with NTP server
+      command: ntpdate pool.ntp.org
+      become: yes
 
     - name: Update apt cache
       apt:

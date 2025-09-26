@@ -21,7 +21,11 @@ In this project, I use the following tools:
 | └── inventory.ini
 | └── playbook.yml
 ├── terraform/
-| └── main.tf
+│ └── VMware_VM/
+|   └── main.tf # To create docker container and run Flask app
+│ └── VirtualBox_Host/
+|   └── main.tf # To create VirtualBox VM
+|   └── Vagrantfile
 ├── monitoring/
 | └── prometheus.yml
 │ └── grafana/
@@ -36,15 +40,22 @@ In this project, I use the following tools:
 ```bash
    git clone https://github.com/pleszkoi/Production-Environment-Homelab.git
    cd Production-Environment-Homelab
-```
-2. Build and start with `docker compose`
+
+2. Create the Virtual Machine with Terraform
 ```bash
-   docker compose up --build
-```
-3. Open it in browser
+   cd terraform/VirtualBox_Host
+   terraform init
+   terraform apply -auto-approve
+
+3. Configure the VM and deploy the application with Ansible
+```bash
+   cd ../../ansible
+   ansible-playbook -i inventory.ini playbook.yml --limit debian
+
+4. Open it in browser
 ```arduino
    http://localhost:5000
-```
+
 
 If everything went good, the "Hello from Dockerized Flask App!" message appears.\
 If you modify the app/app.py file, the change will also be updated in the container (due to the volumes setting in docker-compose.yml).

@@ -1,14 +1,14 @@
 # Production-Environment-Homelab
 
 This is a simple **Homelab Project** that demonstrates the collaboration of several modern technologies.\
-In this project, I use: 
-- **VMWare** to create Virtual Machines.
-- **Terraform** to describe the structure of the Virtual Machines,
-- **Ansible** to configure the Virtual Machines created by Terraform.
-- I run applications in a containerized environment (**Git and GitHub**) and use
-- **Prometheus** and **Grafana** to monitor processes.
-- **Linux (Ubuntu Server)** provides the basic environment.
-- An application written in **Python** runs in the environment.
+In this project, I use the following tools: 
+- **VirtualBox**: to create and manage virtual machines locally, providing an isolated environment for testing and development.  
+- **Terraform**: to describe and provision infrastructure as code, ensuring consistent and reproducible VM creation.  
+- **Ansible**: to automate the configuration and setup of the virtual machines created by Terraform.  
+- **Docker**: to containerize and run applications in a lightweight, portable, and scalable environment.  
+- **Git and GitHub**: to manage version control of the application and infrastructure code, enabling easy collaboration, history tracking, and integration with automation tools.  
+- **Linux (Ubuntu Server)**: to serve as the host operating system, providing a stable and flexible foundation for running services.  
+- **Python**: to develop and run a simple Flask-based application within the containerized environment.
 
 ## Project structure
 <pre>
@@ -24,8 +24,8 @@ In this project, I use:
 | └── main.tf
 ├── monitoring/
 | └── prometheus.yml
-│   └── grafana/
-│     └── dashboards.json
+│ └── grafana/
+│   └── dashboards.json
 ├── .dockerignore
 ├── .gitignore
 └── docker-compose.yml # To start Stack

@@ -60,5 +60,11 @@ In this project, I use the following tools:
 If everything went good, the "Hello from Dockerized Flask App!" message appears.\
 If you modify the app/app.py file, the change will also be updated in the container (due to the volumes setting in docker-compose.yml).
 
+## Development opportunities
+
+- Monitoring the system using Prometheus and Grafana.
+- Extending the Flask app.
+
+
 **Author: Pleszkó István**\
 **LinkedIn: https://www.linkedin.com/in/pleszko-istvan/**
